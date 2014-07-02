@@ -25,6 +25,9 @@
     "支持鼠标
     set mouse=a
 
+    "支持单词拼写检查
+    set spell
+
     "设置配色方案
     colorscheme morning
     set guifont=YaHei\ Consolas\ Hybrid\ 10
@@ -103,3 +106,6 @@
             set dictionary-=/home/doro_lab/.vim/bundle/phpfunclist/funclist.txt dictionary+=/home/doro_lab/.vim/bundle/phpfunclist/funclist.txt 
             set complete-=k complete+=k
     endfunction
+
+
+    let g:languagetool_jar='/home/doro/.vim/bundle/language-tool/LanguageTool-2.5/languagetool-commandline.jar'

@@ -1,8 +1,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""
+"                    配置Pathogen              "
+""""""""""""""""""""""""""""""""""""""""""""""""
+    execute pathogen#infect()
+    call    pathogen#helptags() 
+
+""""""""""""""""""""""""""""""""""""""""""""""""
 "                    基本配置                  "
 """"""""""""""""""""""""""""""""""""""""""""""""
+    set nocompatible
+
     "设置默认编码
     set encoding=utf8
+    set fenc=utf-8
+    set fileencoding=utf-8
+
 
     "显示行号
     set nu
@@ -11,9 +22,10 @@
     "按下F2关闭或者显示行号
     nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
-    "语法高亮，文件类型
-    syntax on
-    filetype plugin indent on
+    "文件类型
+    filetype on 
+    filetype plugin on "针对不同的文件类型加载对应的插件
+    filetype indent on "针对不同的文件类型采用不同的缩进格式
 
     "显示当前的行号和序列号
     set ruler
@@ -26,10 +38,12 @@
     set mouse=a
 
     "支持单词拼写检查
-    set spell
+    "set spell
 
-    "设置配色方案
-    colorscheme morning
+    "语法高亮,设置配色方案
+    syntax on
+    set background=dark
+    colorscheme solarized
     set guifont=YaHei\ Consolas\ Hybrid\ 10
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    自动保存                  "
@@ -56,11 +70,6 @@
     map ,e :e ~/.vimrc<CR>
     autocmd! bufwritepost vimrc source ~/.vimrc
 
-""""""""""""""""""""""""""""""""""""""""""""""""
-"                    配置Pathogen              "
-""""""""""""""""""""""""""""""""""""""""""""""""
-    execute pathogen#infect()
-    call    pathogen#helptags() 
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    NERDTree                  "
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -98,14 +107,42 @@
     map <c-l> <c-w>l
     map <c-h> <c-w>h
 
-""""""""""""""""""""""""""""""""""""""""""""""""
-"                    php自动补全               "
-""""""""""""""""""""""""""""""""""""""""""""""""
-    au FileType php call AddPHPFuncList()
-    function AddPHPFuncList()
-            set dictionary-=/home/doro_lab/.vim/bundle/phpfunclist/funclist.txt dictionary+=/home/doro_lab/.vim/bundle/phpfunclist/funclist.txt 
-            set complete-=k complete+=k
-    endfunction
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                单词拼写检查                  "
+""""""""""""""""""""""""""""""""""""""""""""""""
 
     let g:languagetool_jar='/home/doro/.vim/bundle/language-tool/LanguageTool-2.5/languagetool-commandline.jar'
+    
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                indent line                   "
+""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:indentLine_colot_term=239
+    
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                F5编译运行，JAVA                   "
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+func! CompileCode()
+    exec "w"
+    if &filetype == "java"
+        exec "!javac -encoding utf-8 %"
+    endif
+endfunc
+
+func! RunCode()
+    if &filetype == "java"
+        exec "!java -classpath %:h: %:t:r"
+    endif
+endfunc
+
+"F5 保存和编译
+map <F5> :call CompileCode()<CR>
+
+"F6 运行
+map <F6> :call RunCode()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                new config                    "
+""""""""""""""""""""""""""""""""""""""""""""""""

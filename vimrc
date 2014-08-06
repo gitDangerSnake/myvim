@@ -14,6 +14,7 @@
     set fenc=utf-8
     set fileencoding=utf-8
 
+    set ruler
 
     "显示行号
     set nu
@@ -68,7 +69,12 @@
 "                    快速vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""
     map ,e :e ~/.vimrc<CR>
+    map ,j :e ~/.vim/bundle/snipmate/snippets/java.snippets<CR>
     autocmd! bufwritepost vimrc source ~/.vimrc
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                    快速java.snippets         "
+""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    NERDTree                  "
@@ -144,5 +150,5 @@ map <F5> :call CompileCode()<CR>
 map <F6> :call RunCode()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-"                new config                    "
+"                java complete                 "
 """"""""""""""""""""""""""""""""""""""""""""""""

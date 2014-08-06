@@ -1,24 +1,27 @@
+snippet StreamTokenizer
+	StreamTokenizer st = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+
 snippet sysout
 	System.out.println(${1});
-snippet jd
-	public class ${1:`Filename()`} {
-		public static void main(String[] args){
-			${2:/*code here*/}
-		}
-	}
+
 snippet main
 	public static void main (String [] args)
 	{
 		${1:/* code */}
 	}
+
 snippet pu
 	public
-snippet po
+
+snippet pro
 	protected
+
 snippet pr
 	private
+
 snippet st
 	static
+
 snippet fi
 	final
 snippet ab

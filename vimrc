@@ -73,8 +73,9 @@
     autocmd! bufwritepost vimrc source ~/.vimrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-"                    快速java.snippets         "
+"                    ctrlp                     "
 """"""""""""""""""""""""""""""""""""""""""""""""
+    set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    NERDTree                  "

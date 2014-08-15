@@ -43,9 +43,15 @@
 
     "语法高亮,设置配色方案
     syntax on
-    set background=dark
-    colorscheme solarized
     set guifont=YaHei\ Consolas\ Hybrid\ 10
+
+    if has("gui_running")
+        set background=dark
+        colorscheme solarized
+    else
+        colorscheme default
+    endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    自动保存                  "
 """""""""""""""""""""""""""""""""""""""""""""""" 

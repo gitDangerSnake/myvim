@@ -1,8 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""
-"                    配置Pathogen              "
-""""""""""""""""""""""""""""""""""""""""""""""""
-    execute pathogen#infect()
-    call    pathogen#helptags() 
+
+execute pathogen#infect()
+call pathogen#helptags()
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                    基本配置                  "
@@ -157,5 +155,8 @@ map <F5> :call CompileCode()<CR>
 map <F6> :call RunCode()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-"                java complete                 "
+"               python complete                "
 """"""""""""""""""""""""""""""""""""""""""""""""
+
+    let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+    let g:pydiction_menu_height = 5
